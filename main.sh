@@ -32,4 +32,53 @@ echo -e "\n"
 
 echo -en "Loading"
 loader
-`ZZ
+
+export file_path="Students-list_1023.txt"
+
+#----------------------------------------function To Register student
+function register {
+  # get inputs with function
+  read -p "Enter Student Email: " email
+  read -p "Enter Student Age: " age
+  #must be in formmat like this [ALU2023001]
+  read -p "Enter Student Id: " id
+
+  if [[ $email == *"@alustudent.com" ]]; then
+    if [ -e "$file_path" ]; then
+      echo "adding student"
+    else
+      printf "+----------------------------+----------------------------+-----------------------------------+\n" > $file_path
+      printf "| %-26s | %-26s | %-33s |\n" "student Id" "Age" "Email" >> $file_path
+      printf "+----------------------------+----------------------------+-----------------------------------+\n" >> $file_path
+      echo "Creating Table and Adding Data"
+    fi
+    sleep 1
+    # use grep to search if student id column exists
+    if grep -E "^\|[[:space:]]$id[[:space:]]\|" $file_path; then
+      # message notification
+      echo -e "\n\n${orange}*The student Id Already Exists${reset}\n"
+      # restart app for the user to enter new data
+      sleep 2
+      clear
+      ./main.sh
+    else
+      # Print table rows
+      printf "| %-26s | %-26s | %-33s |\n" "$id" "$age" "$email" >> $file_path
+      printf "+----------------------------+----------------------------+-----------------------------------+\n" >> $file_path
+      # loading message
+      echo -en "${green}opening preview loading${reset} ";
+      loader
+      # end of loading
+      cat $file_path
+      echo -e "\n\n **** Press any key to return home **** \n\n"
+      read -n 1
+      clear
+      ./main.sh
+    fi
+  else
+    echo -e "\n\n${orange}**************** This is Not A valid ALU Student Email ****************${reset}\n\n"
+    # call the register function if invalid email to allow the user to input again
+    register
+  fi
+}
+
