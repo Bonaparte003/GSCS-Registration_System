@@ -16,3 +16,17 @@ if [ -f "$file_path" ]; then
         echo -n "."
         sleep 0.1
     done
+    echo -e "100%\n"
+    # End of loading
+
+    # Sort the email list-----------------------------
+    cat "$file_save" | sort > "$file_save.temp"
+    mv "$file_save.temp" "$file_save"
+
+    echo -e "\n\n\n"
+    ./main.sh
+
+    #file doesn't exit error message
+else
+    echo "Error: File doesn't exist"
+fi
