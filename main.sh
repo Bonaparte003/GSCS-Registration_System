@@ -108,4 +108,9 @@ function view_student {
     clear
     ./main.sh
   fi
-}
+} 
+
+function delete_student {
+    # Get student Id
+    read -p "Enter The Student Id To Delete: " id
+} 
