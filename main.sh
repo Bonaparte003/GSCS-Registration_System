@@ -11,3 +11,13 @@ print_orange() {
   echo -e "${orange}${text}${reset}"
 }
 
+# function for application loader
+function loader {
+  for i in {1..57}; do
+    echo -en "."
+    sleep 0.02
+  done
+  echo -e "100%\n"
+}
+
+
