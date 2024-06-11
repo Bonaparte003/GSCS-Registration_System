@@ -109,3 +109,13 @@ function view_student {
     ./main.sh
   fi
 }
+
+#------------------------function to view emails in ASC order-----------------------
+function view_email {
+    # Loading message
+    echo -en "${green}Opening Emails preview in ASC Order${reset}"
+    loader
+    # End of loading
+    cat "$emails"
+    ./main.sh
+}
