@@ -109,3 +109,8 @@ function view_student {
     ./main.sh
   fi
 }
+
+# Function to update student details ----
+function update_student {
+	
+}
