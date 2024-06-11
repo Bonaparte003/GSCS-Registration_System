@@ -92,3 +92,12 @@ function view_student {
       echo -e "\n\n \t\t\t*** Viewing All Students ***\n\n\n"
       # display students
       cat "$file_path"
+      # and also call restart the app for user to choose other
+      ./main.sh
+    else
+      echo "${red}No Student Found. Try Adding New Students.${reset}"
+      echo -e "\n\n **** Press any key to return home **** \n\n"
+      read -n 1
+      clear
+      ./main.sh
+    fi
