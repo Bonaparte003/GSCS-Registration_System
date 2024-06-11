@@ -113,4 +113,13 @@ function view_student {
 function delete_student {
     # Get student Id
     read -p "Enter The Student Id To Delete: " id
-} 
+   # Check if file Exists To Avoid Errors
+    if [ -f "$file_path" ]; then
+        # Use Grep To Search Student Id that matches the pattern
+        grep -E -n "^\|[[:space:]]*$id[[:space:]]*\|" "$file_path" | while read -r line; do
+            # Lines matches including numbers and split them (with line numbers)
+            line_num=$(echo "$line" | cut -d ':' -f 1)
+            # Delete the line that matched the search and the next line
+            sed -i "${line_num}d;$(($line_num+1))d" "$file_path"
+        done
+} 	
