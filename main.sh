@@ -122,4 +122,11 @@ function delete_student {
             # Delete the line that matched the search and the next line
             sed -i "${line_num}d;$(($line_num+1))d" "$file_path"
         done
-} 	
+	echo "${green}Deleted row with Student ID: $id${reset}"
+
+        echo -e "\n\n **** Preparing Your Preview **** \n\n"
+        loader
+        # End of loading
+        clear
+        view_student
+} 
