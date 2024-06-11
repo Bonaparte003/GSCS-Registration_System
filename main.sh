@@ -137,3 +137,11 @@ function delete_student {
          ./main.sh
     fi
 }
+function exit_main {
+    # Send message for closing app
+    echo -en "${green}\n\n\nClosing App. Please wait for a few seconds to finish...\n\n\n${reset}"
+    sleep 0.6
+    clear
+    # Kill the main process
+    pkill -f './main.sh'
+}
