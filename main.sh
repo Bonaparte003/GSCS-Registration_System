@@ -109,6 +109,7 @@ function view_student {
     ./main.sh
   fi
 }
+
 #------------------------function to save in new file ------------------------------
 function email_save {
     echo -en "${green}Saving Emails in ASC${reset}"
@@ -118,3 +119,15 @@ function email_save {
 }
 
 emails='student-emails.txt'
+
+
+#------------------------function to view emails in ASC order-----------------------
+function view_email {
+    # Loading message
+    echo -en "${green}Opening Emails preview in ASC Order${reset}"
+    loader
+    # End of loading
+    cat "$emails"
+    ./main.sh
+}
+
