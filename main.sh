@@ -82,3 +82,13 @@ function register {
   fi
 }
 
+# function to view all students
+function view_student {
+  # Check if the file exists
+  if [ -f "$file_path" ]; then
+    # check if file is empty
+    if [ -s "$file_path" ]; then
+      # message
+      echo -e "\n\n \t\t\t*** Viewing All Students ***\n\n\n"
+      # display students
+      cat "$file_path"
