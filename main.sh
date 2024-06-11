@@ -112,5 +112,62 @@ function view_student {
 
 # Function to update student details ----
 function update_student {
-	
+# check if file exists
+  if [ -f "$file_path" ]; then
+    # get email
+    read -p "Enter The Student Id To Edit: " id
+
+    # check existence of the student id
+    if grep -E "^\|[[:space:]]*$id[[:space:]]*\|" "$file_path"; then
+      # message to the being edited
+      echo -e "\nYou Are Editing this User\n"
+      # get data from user: age and email
+      read -p "Enter New Age: " age
+      read -p "Enter New Email: " email
+
+      if [[ $email == *"@alustudent.com" ]]; then
+        temp_file="temp_file"
+        found=false
+        while IFS= read -r line; do
+          if echo "$line" | grep -q -E "^\|[[:space:]]*$id[[:space:]]*\|"; then
+            printf "| %-26s | %-26s | %-33s |\n" "$id" "$age" "$email" >> "$temp_file"
+            found=true
+          else
+            echo "$line" >> "$temp_file"
+          fi
+        done < "$file_path"
+        
+        if [ "$found" = false ]; then
+          echo "${red}Student ID: $id not found in the file.${reset}"
+          echo -e "\n\n **** Press any key to return home **** \n\n"
+          read -n 1
+          clear
+          ./main.sh
+        else
+          mv "$temp_file" "$file_path"
+          echo "${green}Successfully Edited Student with ID: $id${reset}"
+          echo -e "\n\n **** Preparing Your Preview **** \n\n"
+          loader
+          # end of loading
+          clear
+          view_student
+        fi
+      else
+        echo -e "\n\n${orange}**************** This is Not A valid ALU Student Email ****************${reset}\n\n"
+        update_student
+      fi
+    else
+      echo -e "${red}Error: Student Id Doesn't exist: $id${reset}"
+      echo -e "\n\n **** Press any key to return home **** \n\n"
+      read -n 1
+      clear
+      ./main.sh
+    fi
+  else
+    echo -e "${red}Error: File not found : $file_path${reset}"
+    echo -e "\n\n **** Press any key to return home **** \n\n"
+    read -n 1
+    clear
+    ./main.sh
+  fi
 }
