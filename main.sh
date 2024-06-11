@@ -109,3 +109,12 @@ function view_student {
     ./main.sh
   fi
 }
+#------------------------function to save in new file ------------------------------
+function email_save {
+    echo -en "${green}Saving Emails in ASC${reset}"
+    sleep 0.6
+    clear
+    ./select-emails.sh
+}
+
+emails='student-emails.txt'
