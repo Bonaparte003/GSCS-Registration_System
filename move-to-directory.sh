@@ -18,3 +18,30 @@ main='main.sh'
 file_path='Students-list_1023.txt'
 file_save='student-emails.txt'
 
+# file exit
+
+if [ -f "$s_email" ] && [ -f "$main" ] && [ -f "$file_path" ] && [ -f "$file_save" ]; then
+    if [ -d "$folder" ]; then
+        echo -n "Moving Files "
+        loader
+        mv -f "$main" "$s_email" "$file_save" "$file_path" "$folder"
+        echo -n "Backing up data to alu-cod.online "
+        loader
+        ./backup-Negpod_12.sh
+    else
+        echo -n "Creating directory "
+        loader
+        mkdir "$folder"
+
+        echo -n "Folder Created Successfully!! Moving Files "
+        loader
+        mv -f "$main" "$s_email" "$file_save" "$file_path" "$folder"
+        echo -n "Backing up data to alu-cod.online "
+        loader
+        ./backup-Negpod_12.sh
+    fi
+else
+    echo "Error: Your Files Don't Exist"
+    echo -n "Ending Programming "
+    loader
+fi
