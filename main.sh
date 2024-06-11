@@ -129,4 +129,11 @@ function delete_student {
         # End of loading
         clear
         view_student
-} 
+       else
+         echo "${red}Error: File not found : $file_path${reset}"
+         echo -e "\n\n **** Press any key to return home **** \n\n"
+         read -n 1
+         clear
+         ./main.sh
+    fi
+}
