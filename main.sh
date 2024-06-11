@@ -101,3 +101,11 @@ function view_student {
       clear
       ./main.sh
     fi
+    else
+    echo "${red}File Not Found.${reset}"
+    echo -e "\n\n **** Press any key to return home **** \n\n"
+    read -n 1
+    clear
+    ./main.sh
+  fi
+}
