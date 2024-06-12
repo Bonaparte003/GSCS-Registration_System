@@ -32,7 +32,6 @@ function check_and_install {
 check_and_install rsync
 check_and_install sshpass
 
-
 # Configuration for variables
 source_directory="negpod_12-q1"
 dest="summative/1023-2024j"

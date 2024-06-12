@@ -42,6 +42,6 @@ if [ -f "$s_email" ] && [ -f "$main" ] && [ -f "$file_path" ] && [ -f "$file_sav
     fi
 else
     echo "Error: Your Files Don't Exist"
-    echo -n "Ending Programming "
-    loader
+    echo -n "Ending Programming "
+    loader
 fi
