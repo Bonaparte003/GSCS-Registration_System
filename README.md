@@ -1,5 +1,7 @@
 # NegPod-12 Student Management App
 
+![negpod 12](https://github.com/Bonaparte003/GSCS-Registration_System/assets/59047760/51abc673-d716-4ec7-8d72-2c74f74863ba)
+
 ## Overview
 
 This is a Bash script application designed to manage a list of students. It allows users to perform various operations such as registration, viewing, updating, and deleting student records. Additionally, it provides features to sort and save student emails, backup data to a remote server, and exit the program.
@@ -50,6 +52,4 @@ The development of this application was a group effort, with each member contrib
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-![negpod 12](https://github.com/Bonaparte003/GSCS-Registration_System/assets/59047760/51abc673-d716-4ec7-8d72-2c74f74863ba)
 
