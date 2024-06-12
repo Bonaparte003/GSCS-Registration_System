@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 green='\033[0;32m'
