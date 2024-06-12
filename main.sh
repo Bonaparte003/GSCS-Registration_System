@@ -248,3 +248,68 @@ function back_up {
         ./main.sh
     fi
 }
+
+
+# App menu
+echo -e "\n\n*******************************************************"
+print_orange "***************** Welcome to our app ******************"
+echo -e "*******************************************************\n"
+
+echo -e "What would you like to do today?\n"
+
+echo "╔═══════════════════════════════════════════════════╗"
+echo "║                  Main Menu                        ║"
+echo "╠═══════════════════════════════════════════════════╣"
+echo "║    1. Add New Student                             ║"
+echo "║    2. View All Students                           ║"
+echo "║    3. Update Student                              ║"
+echo "║    4. Delete Student                              ║"
+echo "║    5. Save Student Emails Sorted in ASC           ║"
+echo "║    6. View All Emails Only in ASC Order           ║"
+echo "║    7. Backup your data                            ║"
+echo "║    8. Exit                                        ║"
+echo "╚═══════════════════════════════════════════════════╝"
+
+echo -e "\nEnter your choice (1-8): "
+
+# Allow the user to input their choice with read function
+echo -e "\n"
+read -p "Enter Your choice Here: " choice
+echo -e "\n"
+
+# Switch case to call functions according to user need
+case $choice in
+    1)
+        register
+        ;;
+    2)
+        view_student
+        ;;
+    3)
+        update_student
+        ;;
+    4)
+    
+        delete_student
+        ;;
+    5)
+        email_save
+        ;;
+    6)
+        view_email
+        ;;
+    7)
+        back_up
+        ;;
+    8)
+        exit_main
+        ;;
+    *)
+        echo -e "${red}Invalid choice. Please try again.${reset}"
+        echo -e "\n\n **** Press any key to return home **** \n\n"
+        read -n 1
+        clear
+        ./main.sh
+        ;;
+esac
+
