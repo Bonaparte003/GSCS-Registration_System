@@ -50,3 +50,6 @@ The development of this application was a group effort, with each member contrib
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+![negpod 12](https://github.com/Bonaparte003/GSCS-Registration_System/assets/59047760/51abc673-d716-4ec7-8d72-2c74f74863ba)
+
