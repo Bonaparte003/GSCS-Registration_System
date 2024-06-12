@@ -231,3 +231,20 @@ function view_email {
     cat "$emails"
     ./main.sh
 }
+
+#------------------------function to backup data
+function back_up {
+    read -p "Are you sure you want to backup your data? (Y or N) If you backup this data, everything will be backed up and you won't be able to run this program unless you go to the online server or backup directory: " opt
+
+    if [ "$opt" == 'Y' ] || [ "$opt" == 'y' ]; then
+        echo -en "Opening Backup"
+        loader
+        ./move-to-directory.sh
+    else
+        echo "$opt"
+        echo -e "\n\n **** Press any key to return home **** \n\n"
+        read -n 1
+        clear
+        ./main.sh
+    fi
+}
