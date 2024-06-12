@@ -18,7 +18,8 @@ function loader {
     sleep 0.02
   done
   echo -e "100%\n"
-}
+} 
+
 
 echo -e "\n\n"
 print_orange "███╗   ██╗███████╗ ██████╗ ██████╗  ██████╗ ██████╗      ██╗██████╗ "
@@ -54,9 +55,9 @@ function register {
     fi
     sleep 1
     # use grep to search if student id column exists
-    if grep -E "^\|[[:space:]]$id[[:space:]]\|" $file_path; then
+    if grep -E "^\|[[:space:]]*$id[[:space:]]*\|" $file_path; then
       # message notification
-      echo -e "\n\n${orange}*The student Id Already Exists${reset}\n"
+      echo -e "\n\n${orange}****The student Id Already Exists***${reset}\n"
       # restart app for the user to enter new data
       sleep 2
       clear
@@ -101,18 +102,18 @@ function view_student {
       clear
       ./main.sh
     fi
-    else
+  else
     echo "${red}File Not Found.${reset}"
     echo -e "\n\n **** Press any key to return home **** \n\n"
     read -n 1
     clear
     ./main.sh
   fi
-} 
+}
 
-# Function to update student details ----
+#----------------------------function To Update Student----------------------
 function update_student {
-# check if file exists
+  # check if file exists
   if [ -f "$file_path" ]; then
     # get email
     read -p "Enter The Student Id To Edit: " id
@@ -176,7 +177,8 @@ function update_student {
 function delete_student {
     # Get student Id
     read -p "Enter The Student Id To Delete: " id
-   # Check if file Exists To Avoid Errors
+
+    # Check if file Exists To Avoid Errors
     if [ -f "$file_path" ]; then
         # Use Grep To Search Student Id that matches the pattern
         grep -E -n "^\|[[:space:]]*$id[[:space:]]*\|" "$file_path" | while read -r line; do
@@ -185,29 +187,20 @@ function delete_student {
             # Delete the line that matched the search and the next line
             sed -i "${line_num}d;$(($line_num+1))d" "$file_path"
         done
-	echo "${green}Deleted row with Student ID: $id${reset}"
+        echo "${green}Deleted row with Student ID: $id${reset}"
 
         echo -e "\n\n **** Preparing Your Preview **** \n\n"
         loader
-        # End of loading
+        # End of loading 
         clear
         view_student
-       else
+    else
          echo "${red}Error: File not found : $file_path${reset}"
          echo -e "\n\n **** Press any key to return home **** \n\n"
          read -n 1
          clear
          ./main.sh
     fi
-}
-
-function exit_main {
-    # Send message for closing app
-    echo -en "${green}\n\n\nClosing App. Please wait for a few seconds to finish...\n\n\n${reset}"
-    sleep 0.6
-    clear
-    # Kill the main process
-    pkill -f './main.sh'
 }
 
 #------------------------function to save in new file ------------------------------
@@ -219,7 +212,6 @@ function email_save {
 }
 
 emails='student-emails.txt'
-
 
 #------------------------function to view emails in ASC order-----------------------
 function view_email {
@@ -248,6 +240,15 @@ function back_up {
     fi
 }
 
+#------------------------function to exit program---------------
+function exit_main {
+    # Send message for closing app
+    echo -en "${green}\n\n\nClosing App. Please wait for a few seconds to finish...\n\n\n${reset}"
+    sleep 0.6
+    clear
+    # Kill the main process
+    pkill -f './main.sh'
+}
 
 # App menu
 echo -e "\n\n*******************************************************"
