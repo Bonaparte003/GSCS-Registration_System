@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 green='\033[0;32m'
@@ -108,7 +109,7 @@ function view_student {
     clear
     ./main.sh
   fi
-}
+} 
 
 # Function to update student details ----
 function update_student {
@@ -170,4 +171,63 @@ function update_student {
     clear
     ./main.sh
   fi
+}
+
+#---------------------------------------function to Delete student------------------
+function delete_student {
+    # Get student Id
+    read -p "Enter The Student Id To Delete: " id
+   # Check if file Exists To Avoid Errors
+    if [ -f "$file_path" ]; then
+        # Use Grep To Search Student Id that matches the pattern
+        grep -E -n "^\|[[:space:]]*$id[[:space:]]*\|" "$file_path" | while read -r line; do
+            # Lines matches including numbers and split them (with line numbers)
+            line_num=$(echo "$line" | cut -d ':' -f 1)
+            # Delete the line that matched the search and the next line
+            sed -i "${line_num}d;$(($line_num+1))d" "$file_path"
+        done
+	echo "${green}Deleted row with Student ID: $id${reset}"
+
+        echo -e "\n\n **** Preparing Your Preview **** \n\n"
+        loader
+        # End of loading
+        clear
+        view_student
+       else
+         echo "${red}Error: File not found : $file_path${reset}"
+         echo -e "\n\n **** Press any key to return home **** \n\n"
+         read -n 1
+         clear
+         ./main.sh
+    fi
+}
+
+function exit_main {
+    # Send message for closing app
+    echo -en "${green}\n\n\nClosing App. Please wait for a few seconds to finish...\n\n\n${reset}"
+    sleep 0.6
+    clear
+    # Kill the main process
+    pkill -f './main.sh'
+}
+
+#------------------------function to save in new file ------------------------------
+function email_save {
+    echo -en "${green}Saving Emails in ASC${reset}"
+    sleep 0.6
+    clear
+    ./select-emails.sh
+}
+
+emails='student-emails.txt'
+
+
+#------------------------function to view emails in ASC order-----------------------
+function view_email {
+    # Loading message
+    echo -en "${green}Opening Emails preview in ASC Order${reset}"
+    loader
+    # End of loading
+    cat "$emails"
+    ./main.sh
 }
