@@ -31,3 +31,18 @@ function check_and_install {
 # Check if rsync and sshpass are installed, and install them if they are not
 check_and_install rsync
 check_and_install sshpass
+
+
+# Configuration for variables
+source_directory="negpod_12-q1"
+dest="summative/1023-2024j"
+
+# Create the destination directory on the remote server if it doesn't exist
+sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USERNAME@$HOST" "mkdir -p /summative/1023-2024j"
+
+# Use rsync to backup the directory to the alu-cod.online server
+rsync -avz --delete -e "sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no" "$source_directory" "$USERNAME@$HOST:$dest"
+
+echo -n "Backup completed. Ending Program ."
+loader
+echo -e "\n\n **************************** Thank You!!*****************************"
