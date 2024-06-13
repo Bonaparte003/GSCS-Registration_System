@@ -29,9 +29,9 @@ to run back-up you must provide environment variables in a `.env` file, you can 
 The development of this application was a group effort, with each member contributing to different aspects of the project:
 
 0. **Setup**: All team members participated in the initial setup of the project.
-1. **Add New Student & Loader Function**: Birasa Laura Divine (4+ commits)
+1. **Add New Student & Loader Function**: Birasa Laura Divine (5+ commits)
 2. **View All Students**: Bonaparte Avellin Uteramahoro (4+ commits)
-3. **Edit Existing Student**: Didier Nsengiyumva (2+ commits)
+3. **Edit Existing Student**: Didier Nsengiyumva (3+ commits)
 4. **Delete Student**: Lee Tonny Muvunyi (2+ commits)
 5. **Save Student Emails Sorted in ASC**: Umuhoza Justine (3+ commits)
 6. **View Student Emails Sorted in ASC**: Milka Keza Isingizwe  (4+ commits)
@@ -40,9 +40,9 @@ The development of this application was a group effort, with each member contrib
 
 ## Contributors
 
-- Birasa Laura Divine (4+ commits)
+- Birasa Laura Divine (5+ commits)
 - Bonaparte Avellin Uteramahoro (4+ commits)
-- Didier Nsengiyumva (2+ commits)
+- Didier Nsengiyumva (3+ commits)
 - Lee Tonny Muvunyi (5+ commits)
 - Eddy Uwambaje (9+ commits)
 - Milka Keza Isingizwe (4+ commits)
