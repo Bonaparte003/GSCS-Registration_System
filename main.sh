@@ -187,7 +187,7 @@ function delete_student {
             # Delete the line that matched the search and the next line
             sed -i "${line_num}d;$(($line_num+1))d" "$file_path"
         done
-        echo "${green}Deleted row with Student ID: $id${reset}"
+        echo -e "${green}Deleted row with Student ID: $id${reset}"
 
         echo -e "\n\n **** Preparing Your Preview **** \n\n"
         loader
@@ -195,11 +195,11 @@ function delete_student {
         clear
         view_student
     else
-         echo "${red}Error: File not found : $file_path${reset}"
+         echo -e "${red}Error: File not found : $file_path${reset}"
          echo -e "\n\n **** Press any key to return home **** \n\n"
-         read -n 1
-         clear
-         ./main.sh
+        read -n 1
+        clear
+        ./main.sh
     fi
 }
 
