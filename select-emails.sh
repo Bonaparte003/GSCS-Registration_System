@@ -28,5 +28,5 @@ if [ -f "$file_path" ]; then
 
     #file doesn't exit error message
 else
-    echo "Error: File doesn't exist"
+    echo "Error: File doesn't exist" 
 fi

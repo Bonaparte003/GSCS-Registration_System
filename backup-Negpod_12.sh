@@ -43,5 +43,5 @@ sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USERNAME@$HOST" "mkdir 
 rsync -avz --delete -e "sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no" "$source_directory" "$USERNAME@$HOST:$dest"
 
 echo -n "Backup completed. Ending Program ."
-loader
+loader 
 echo -e "\n\n **************************** Thank You!!*****************************"
