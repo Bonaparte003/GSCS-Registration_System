@@ -188,7 +188,7 @@ function delete_student {
             sed -i "${line_num}d;$(($line_num+1))d" "$file_path"
         done
         echo -e "${green}Deleted row with Student ID: $id${reset}"
-
+        sleep 1
         echo -e "\n\n **** Preparing Your Preview **** \n\n"
         loader
         # End of loading 
