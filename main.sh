@@ -34,7 +34,7 @@ echo -e "\n"
 echo -en "Loading"
 loader
 
-export file_path="Students-list_1023.txt"
+export file_path="Students-list_0524.txt"
 
 #----------------------------------------function To Register student
 function register {

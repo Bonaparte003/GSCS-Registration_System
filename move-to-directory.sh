@@ -15,7 +15,7 @@ folder="negpod_12-q1"
 # File initialization---------------
 s_email='select-emails.sh'
 main='main.sh'
-file_path='Students-list_1023.txt'
+file_path='Students-list_0524.txt'
 file_save='student-emails.txt'
 
 # file exit

@@ -34,10 +34,10 @@ check_and_install sshpass
 
 # Configuration for variables
 source_directory="negpod_12-q1"
-dest="summative/1023-2024j"
+dest="summative/0524-2024m"
 
 # Create the destination directory on the remote server if it doesn't exist
-sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USERNAME@$HOST" "mkdir -p /summative/1023-2024j"
+sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USERNAME@$HOST" "mkdir -p /summative/0524-2024m"
 
 # Use rsync to backup the directory to the alu-cod.online server
 rsync -avz --delete -e "sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no" "$source_directory" "$USERNAME@$HOST:$dest"
