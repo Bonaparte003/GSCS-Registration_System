@@ -1,4 +1,4 @@
-# NegPod-12 Student Management App
+# NegPod-12 Students Management App
 
 ![negpod 12](https://github.com/Bonaparte003/GSCS-Registration_System/assets/59047760/51abc673-d716-4ec7-8d72-2c74f74863ba)
 
